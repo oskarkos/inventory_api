@@ -36,6 +36,13 @@ class InventoryView(ModelViewSet):
     permission_classes = (IsAuthenticatedCustom,)
     pagination_class = CustomPagination
 
+    def get_by_code(self, request, pk=None):
+        inventory = Inventory.objects.filter(code=pk).first()
+        serializer = self.serializer_class(inventory)
+        if inventory is None:
+            return Response({"error": "Code not found"}, status=status.HTTP_404_NOT_FOUND)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
     def get_queryset(self):
         if self.request.method.lower() != "get":
             return self.queryset

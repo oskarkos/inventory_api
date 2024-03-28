@@ -27,7 +27,7 @@ urlpatterns = [
     path('update-invoice/<str:invoice_number>/',
          UpdateInvoiceView.as_view(), name='update-invoice'),
     path('provider/<int:pk>/', ProviderView.as_view({'put': 'update', 'delete': 'destroy'}), name='provider-detail'),
-    path('inventory/<int:pk>/', InventoryView.as_view({'put': 'update', 'delete': 'destroy'}), name='inventory-detail'),
+    path('inventory/<int:pk>/', InventoryView.as_view({'put': 'update', 'delete': 'destroy', 'get': 'get_by_code'}), name='inventory-detail'),
     path('group/<int:pk>/', InventoryGroupView.as_view({'put': 'update', 'delete': 'destroy'}), name='group-detail'),
     path('invoice/<int:pk>/', InvoiceView.as_view({'put': 'update', 'delete': 'destroy'}), name='invoice-detail'),
     path('dian-resolution/<int:pk>/', DianResolutionView.as_view({'put': 'update', 'delete': 'destroy'}), name='dian-resolution-detail'),
