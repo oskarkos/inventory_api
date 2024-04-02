@@ -6,7 +6,6 @@ class Command(BaseCommand):
     help = "Command Information"
 
     def handle(self, *args, **kwargs):
-        
-        fake = Faker("nl_NL")
+        fake = Faker("es_MX")
 
         print(fake.name())
