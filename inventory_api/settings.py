@@ -88,6 +88,7 @@ WSGI_APPLICATION = 'inventory_api.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+
 '''
 DATABASES = {
     'default': {
@@ -102,9 +103,23 @@ DATABASES = {
 '''
 
 # Render PostgreSQL database (live)
-
+'''
 DATABASES = {
     'default': dj_database_url.parse(config('DB_EXTERNAL_URL'))
+}
+'''
+
+
+# RDS Postgres Connection
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'pos_signos',
+        'USER': 'nicolas',
+        'PASSWORD': '12345678',
+        'HOST': 'signos-dev2.cli42a44yad6.us-east-2.rds.amazonaws.com',
+        'PORT': '5432',
+    }
 }
 
 # Password validation
