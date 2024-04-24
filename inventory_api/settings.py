@@ -103,24 +103,22 @@ DATABASES = {
 '''
 
 # Render PostgreSQL database (live)
-'''
 DATABASES = {
     'default': dj_database_url.parse(config('DB_EXTERNAL_URL'))
 }
+
 '''
-
-
 # RDS Postgres Connection
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'pos_signos',
-        'USER': 'nicolas',
+        'NAME': 'pos',
+        'USER': 'postgres',
         'PASSWORD': '12345678',
-        'HOST': 'signos-dev2.cli42a44yad6.us-east-2.rds.amazonaws.com',
+        'HOST': 'signosdb.cli42a44yad6.us-east-2.rds.amazonaws.com',
         'PORT': '5432',
     }
-}
+}'''
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
