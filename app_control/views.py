@@ -1289,7 +1289,7 @@ class ElectronicInvoiceExporter(APIView):
             .values_list(
                 "invoice_number", "payment_method_normalized", "row_number"
             )
-            .order_by("invoice_number")
+            .order_by("-invoice_number")
         )
 
         payment_methods_report = [item for item in payment_methods_report if item[2] == 1]
@@ -1306,7 +1306,7 @@ class ElectronicInvoiceExporter(APIView):
             .values_list(
                 "invoice_number", "sum_amount"
             )
-            .order_by("invoice_number")
+            .order_by("-invoice_number")
         )
 
         electronic_invoice_report_by_invoice(ws3, payment_methods_report, amount_report)
